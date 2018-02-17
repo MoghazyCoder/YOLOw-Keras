@@ -25,10 +25,6 @@ size = 608, 608
 while True:
 	ret, frame = cap.read()
 	input_image = Image.fromarray(frame)
-        #im = Image.fromarray(np.uint8(cm.gist_earth(frame)*255))
-	#im.thumbnail(size, Image.ANTIALIAS)
-	#input_image = cv2.resize(frame, (416, 416))
-	#input_image = Image.open(im)
 	width, height = input_image.size
 	width = np.array(width, dtype=float)
 	height = np.array(height, dtype=float)
@@ -71,10 +67,6 @@ while True:
 	colors = generate_colors(class_names)
 	#Draw the bounding boxes
 	draw_boxes(image, out_scores, out_boxes, out_classes, class_names, colors)
-	#Apply the predicted bounding boxes to the image and save it in out/
-#	image.save(os.path.join("out", input_image_name), quality=90)
-#	output_image = scipy.misc.imread(os.path.join("out", input_image_name))
-	#imshow(image)
 	pix = np.array(image)
 	cv2.imshow('frame' ,pix)
 	k = cv2.waitKey(1)
